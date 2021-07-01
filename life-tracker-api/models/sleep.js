@@ -4,7 +4,7 @@ const { BadRequestError, NotFoundError } = require("../utils/errors")
 class Sleep{
 
     //Creates A New Sleep Posts
-    static async createNutrition({ newSleep, user }) {
+    static async createSleep({ newSleep, user }) {
         const requiredFields = ["start_time","end_time"]
         requiredFields.forEach((field) => {
           if (!newSleep?.hasOwnProperty(field)) {

@@ -42,3 +42,11 @@ CREATE TABLE sleep(
       timestamp   TIMESTAMP DEFAULT NOW()
 );
 
+-- CREATE TABLE activity(
+--    id          SERIAL PRIMARY KEY,
+--    activity_type  VARCHAR(50) NOT NULL,
+--    excercise_id   INTEGER REFERENCES excercises(id) ON DELETE CASCADE,
+--    nutrition_id   INTEGER REFERENCES nutrition(id) ON DELETE CASCADE,
+--    sleep_id      INTEGER REFERENCES sleep(id) ON DELETE CASCADE,
+--    timestamp     TIMESTAMP DEFAULT NOW()
+-- );

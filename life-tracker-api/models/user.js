@@ -61,11 +61,11 @@ class User {
     const normalizedEmail = credentials.email.toLowerCase()
 
     const userResult = await db.query(
-      `INSERT INTO users (email, password, username, first_name, last_name, is_admin)
-       VALUES ($1, $2, $3, $4, $5, $6)
+      `INSERT INTO users (email, password, username, first_name, last_name)
+       VALUES ($1, $2, $3, $4, $5)
        RETURNING id, email, username, first_name, last_name, is_admin;
       `,
-      [normalizedEmail, hashedPassword, credentials.username, credentials.first_name, credentials.last_name, credentials.isAdmin]
+      [normalizedEmail, hashedPassword, credentials.username, credentials.first_name, credentials.last_name]
     )
     const user = userResult.rows[0]
 

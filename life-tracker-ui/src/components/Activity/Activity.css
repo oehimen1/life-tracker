@@ -1,0 +1,50 @@
+
+.ActivityPage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.actions{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    grid-gap: 20px;
+    gap: 20px;
+}
+
+.buttons button{
+    background: transparent;
+    /* color: white; 
+     border: 1px solid white; */
+}
+
+.main, .more{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 35px;
+    grid-gap: 15px;
+    gap: 15px;
+}
+
+.summary-stat, .background{
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.background{
+    background: lightgrey;
+    justify-content: space-around;
+    padding: 16px 32px;
+}

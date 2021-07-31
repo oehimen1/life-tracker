@@ -25,6 +25,7 @@ app.use(security.extractUserFromJwt)
 
 app.use("/auth", authRoutes)
 app.use("/excercises", excerciseRoutes)
+app.use("/excercises/create", excerciseRoutes)
 app.use("/sleeps", sleepRoutes)
 app.use("/nutrition", nutritionRoutes)
 app.use("/activity", activitiesRoutes)

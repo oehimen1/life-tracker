@@ -1,7 +1,6 @@
 
 import { useState } from "react"
-import { Link, useLocation, useNavigate } from "react-router-dom"
-import ApiClient from "../../services/apiClient"
+import { Link } from "react-router-dom"
 import "./NavBar.css"
 
 export default function NavBar({user, setUser, handleOnLogout}){
@@ -31,18 +30,25 @@ export default function NavBar({user, setUser, handleOnLogout}){
                 </div>
                 <ul className="links" >
 
+                    <li className="Home">
+                       <Link to="/">Home</Link>
+                    </li>
+
                     <li className="Activity">
-                        <a className="acta" href="/activity">Activity</a>
+                        <Link className="acta" to="/activity">Activity</Link>
                     </li>
+                    
                     <li className="Excercise">
-                        <a href="/excercises">Excercise</a>
+                        <Link to="/excercises">Excercise</Link>
                     </li>
-                    <li className="Nutrition">
-                        <a href="/nutrition">Nutrition</a>
+                    
+                    {/* <li className="Nutrition">
+                        <Link to="/nutrition">Nutrition</Link>
                     </li>
+                    
                     <li className="Sleep">
-                        <a href="/sleep">Sleep</a>
-                    </li>
+                        <Link to="/sleep">Sleep</Link>
+                    </li> */}
 
                     {user?.id ? 
                      <li className="logout">
@@ -53,11 +59,11 @@ export default function NavBar({user, setUser, handleOnLogout}){
                     <>
 
                     <li className= "Login">
-                       <a href="/login">Login</a>
+                       <Link to="/login">Login</Link>
                     </li> 
                 
                     <li className="register">
-                        <a href="/register">Register</a>
+                        <Link to="/register">Register</Link>
                     </li>
                    
                     </>
@@ -73,7 +79,7 @@ export default function NavBar({user, setUser, handleOnLogout}){
         </nav>
 
 
-    )
+    );
 
 
 

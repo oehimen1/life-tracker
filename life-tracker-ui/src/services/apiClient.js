@@ -3,19 +3,19 @@ import axios from "axios"
 
 class ApiClient{
     constructor(remoteHostUrl){
-        this.remoteHostUrl=remoteHostUrl
+        this.remoteHostUrl = remoteHostUrl
         this.token = null
         this.tokenName = "life_tracker_token"
     }
     setToken(token){
         this.token = token
-        localStorage.setItem(this.tokenName, token)
+        // localStorage.setItem(this.tokenName, token)
     }
 
     async request({ endpoint, method=`GET`, data={}}){
         const url = `${this.remoteHostUrl}/${endpoint}`
 
-       // const params = method === `GET` ? data : {}
+       const params = method === `GET` ? data : {}
 
 
         const headers = {
@@ -27,7 +27,7 @@ class ApiClient{
         }
 //params
         try {
-            const res = await axios({ url, method, data, headers })
+            const res = await axios({ url, method, data, params, headers })
             return { data: res.data, error: null}
         } catch (error) {
             console.error({errorResponse: error.response })
@@ -38,12 +38,12 @@ class ApiClient{
     }
 
    
-async listExcercises(){
+async fetchAll(){
     return await this.request({ endpoint:`excercises`, method: `GET`})
 }
     
-async createExcercise(excercise){
-    return await this.request({ endpoint: `excercises/create`, method: `POST`, data: excercise})
+async createExcercise(excercises){
+    return await this.request({ endpoint:`excercises/create`, method: `POST`, data: excercises })
 }
     
 async loginUser(credentials){

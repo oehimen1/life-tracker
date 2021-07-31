@@ -67,6 +67,8 @@ export default function Register({ user, setUser}){
     if(data){
         setUser(data.user)
         ApiClient.setToken(data.token)
+        localStorage.setItem("life_tracker_token", data.token)
+
     }
     setIsProcessing(false)
     //Connects to the backend register database, when are required fields are entered

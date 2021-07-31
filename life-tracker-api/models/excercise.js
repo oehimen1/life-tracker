@@ -3,7 +3,7 @@ const { BadRequestError, NotFoundError } = require("../utils/errors")
 
 
 class Excercise{
-    static async createExcercise({ newExcercise, user }) {
+    static async createExcercise({ user, newExcercise }) {
         const requiredFields = ["name","category","duration","intensity"]
         requiredFields.forEach((field) => {
           if (!newExcercise?.hasOwnProperty(field)) {
@@ -29,22 +29,27 @@ class Excercise{
         return results.rows[0]
       }
 
-      static async fetchAll() {
-        const results = await db.query(
-          `
-          SELECT exc.id,
-                 exc.name,
-                 exc.category,
-                 exc.duration,
-                 exc.intensity,
-                 exc.user_id AS "userId",
-                 u.email AS "userEmail",
-                 exc.timestamp AS "timestamp"    
-          FROM excercises AS exc
-          JOIN users AS u ON u.id = exc.user_id
-          ORDER BY  exc.timestamp DESC     
-          `
-        )
+      static async fetchAll({ user }) {
+       
+        if(!user){
+          throw new BadRequestError("No authentication recognized")
+        }
+
+        const query =  `
+            SELECT exc.id,
+                  exc.name,
+                  exc.category,
+                  exc.duration,
+                  exc.intensity,
+                  exc.user_id AS "userId",
+                  u.email AS "userEmail",
+                  exc.timestamp AS "timestamp"    
+            FROM excercises AS exc
+            JOIN users AS u ON u.id = exc.user_id
+            WHERE user_id =(SELECT id FROM users WHERE email = $1)
+            ORDER BY  exc.timestamp DESC     
+        `
+        const results = await db.query(query, [user.email])
     
         return results.rows
       }

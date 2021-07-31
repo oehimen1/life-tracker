@@ -43,6 +43,8 @@ export default function Login({ user, setUser }){
         if(data){
             setUser(data.user)
             ApiClient.setToken(data.token)
+            localStorage.setItem("life_tracker_token", data.token)
+
         }
         setIsProcessing(false)
   

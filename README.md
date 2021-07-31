@@ -46,10 +46,10 @@ Implement any of the following features to improve the application:
 
 `ADD_EMBEDDED_CODE_HERE`
 
-<img src="http://g.recordit.co/70xb1fsU1f.gif"/>
-<img src="http://g.recordit.co/XUBSqF1NmW.gif"/>
-<img src="http://g.recordit.co/QzkNl4EWJV.gif"/>
-<img src="http://g.recordit.co/2SpqHIjNB0.gif"/>
+<img src="http://g.recordit.co/k30kePW1dd.gif"/>
+<img src="http://g.recordit.co/LzNSvRVFYj.gif"/> stareed
+<img src="http://g.recordit.co/bhjWhfkQl8.gif"/>
+<img src="http://g.recordit.co/DM7wyiju6c.gif"/>
 
 ### Reflection
 

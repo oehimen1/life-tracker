@@ -86,3 +86,33 @@
 .createLink{
     text-decoration: none;
 }
+
+.ExcerciseCard{
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 16px 32px;
+    background: lightgray;
+}
+
+.card-header, .card-stats, .card-meta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.CardStat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category{
+    border: 1px solid var(--pure-white);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
